@@ -58,6 +58,29 @@ class AsynchronousMailMessageBuilderTests extends GrailsUnitTestCase {
         assertFalse builder.immediately
     }
 
+    void testBuilderWithJobId() {
+        def c = {
+            from 'John Smith <john@example.com>'
+            to 'test1@example.com'
+            subject 'Subject'
+            text 'Text'
+            jobId 100
+        }
+
+        def builder = asynchronousMailMessageBuilderFactory.createBuilder()
+        c.delegate = builder
+        c.call()
+
+        // Message
+        AsynchronousMailMessage message = builder.message
+
+        // Validate message
+        assertTrue(message.validate())
+
+        // Priority
+        assertEquals(100, message.jobId)
+    }
+
     void testMail1() {
         // make test data
         Map hdr = [test: 'test']

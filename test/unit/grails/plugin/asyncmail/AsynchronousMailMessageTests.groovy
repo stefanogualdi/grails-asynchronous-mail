@@ -30,6 +30,7 @@ class AsynchronousMailMessageTests {
         assertEquals 300000l, message.attemptInterval
         assertFalse message.markDelete
         assertEquals 0, message.priority
+        assertNull message.jobId
     }
 
     void testValid(){

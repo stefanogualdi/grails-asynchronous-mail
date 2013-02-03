@@ -69,6 +69,9 @@ class AsynchronousMailMessage implements Serializable {
     // Mark this message for delete after sent
     boolean markDelete = false
 
+    // Job id (optional)
+    Long jobId
+
     /**
      * Check can message be aborted.
      */
@@ -183,6 +186,8 @@ class AsynchronousMailMessage implements Serializable {
         maxAttemptsCount(min: 1)
         lastAttemptDate(nullable: true)
         attemptInterval(min: 0l)
+
+        jobId(nullable: true)
     }
 
     @Override

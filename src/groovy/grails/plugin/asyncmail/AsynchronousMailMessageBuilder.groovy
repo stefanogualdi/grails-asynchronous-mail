@@ -78,6 +78,11 @@ class AsynchronousMailMessageBuilder {
         message.attemptInterval = interval
     }
 
+    // Job id
+    void jobId(Long jobId) {
+        message.jobId = jobId
+    }
+
     // Mark that the message must be sent immediately
     void immediate(boolean value) {
         immediately = value
