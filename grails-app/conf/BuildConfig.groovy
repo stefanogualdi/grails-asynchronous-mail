@@ -15,8 +15,8 @@ grails.project.dependency.resolution = {
             export = false
         }
 
-        compile ':mail:1.0.1'
-        compile ':quartz:1.0-RC7'
+        compile ':mail:1.0.7'
+        compile ':quartz:1.0.2'
 
         build(":release:2.2.0", ":rest-client-builder:1.0.3") {
             export = false
